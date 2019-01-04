@@ -195,12 +195,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConcertController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyConcertsController.cs" />
+    <Compile Include="Filters\MyLoggingFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901031705116_InitialCreate.cs" />
+    <Compile Include="Migrations\201901031705116_InitialCreate.Designer.cs">
+      <DependentUpon>201901031705116_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901031718077_PromoterName.cs" />
+    <Compile Include="Migrations\201901031718077_PromoterName.Designer.cs">
+      <DependentUpon>201901031718077_PromoterName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Concert.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,23 +229,41 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Backstage.jpeg" />
+    <Content Include="Images\Chicago.jpeg" />
+    <Content Include="Images\DesMoines.jpeg" />
+    <Content Include="Images\Drummer.jpeg" />
+    <Content Include="Images\KansasCity.jpeg" />
+    <Content Include="Images\Minneapolis.jpeg" />
+    <Content Include="Images\NewYork.jpeg" />
+    <Content Include="Images\Omaha.jpeg" />
+    <Content Include="Images\progress.gif" />
+    <Content Include="Images\RockBand1.jpeg" />
+    <Content Include="Images\StLouis.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\MvcEssentials - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -265,6 +297,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Backstage.cshtml" />
+    <Content Include="Views\Home\_BackstageLayout.cshtml" />
+    <Content Include="Views\Concert\Index.cshtml" />
+    <Content Include="Views\Concert\Edit.cshtml" />
+    <Content Include="Views\MyConcerts\Create.cshtml" />
+    <Content Include="Views\MyConcerts\Delete.cshtml" />
+    <Content Include="Views\MyConcerts\Details.cshtml" />
+    <Content Include="Views\MyConcerts\Edit.cshtml" />
+    <Content Include="Views\MyConcerts\Index.cshtml" />
+    <Content Include="Views\Shared\_Thanksforfeedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -281,6 +323,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901031705116_InitialCreate.resx">
+      <DependentUpon>201901031705116_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031718077_PromoterName.resx">
+      <DependentUpon>201901031718077_PromoterName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
